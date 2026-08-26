@@ -1,0 +1,51 @@
+.user-page-wrapper {
+  min-height: 100vh;
+  background-color: #0b0f19;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.7) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(17, 24, 39, 1) 0px, transparent 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 40px 10%;
+}
+
+.user-page-glow-top {
+  position: absolute;
+  top: -150px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.user-page-glow-bottom {
+  position: absolute;
+  bottom: -150px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.user-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.user-sidebar-section {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.user-main-content {
+  flex-grow: 1;
+  min-width: 0;
+}

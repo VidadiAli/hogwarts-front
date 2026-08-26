@@ -1,0 +1,262 @@
+.user-categories-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 10%;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  position: absolute;
+  z-index: 1000;
+  top: 75px;
+  transition: left 0.3s ease-in-out;
+  left: -100%;
+}
+
+.user-categories-container-show{
+  left: 0%;
+}
+
+.user-categories-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+
+.user-categories-header p {
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.user-categories-loading {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Grid Kartları */
+.user-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.user-category-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.user-category-card:hover {
+  transform: translateY(-4px);
+  background: var(--bg-tertiary);
+  border-color: var(--accent-gold);
+  box-shadow: var(--glow-gold);
+}
+
+.user-category-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(140, 82, 255, 0.15);
+  color: var(--accent-magic);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(140, 82, 255, 0.3);
+}
+
+.user-category-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.user-category-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.user-sub-count {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  background: rgba(229, 185, 92, 0.12);
+  border: 1px solid rgba(229, 185, 92, 0.25);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.user-arrow-icon {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.user-category-card:hover .user-arrow-icon {
+  color: var(--accent-gold);
+}
+
+/* Overlay (Arxa Plan Qaranlıq Sahə) */
+.user-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 14, 21, 0.75);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.user-drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Sağdan Açılan Panel (Drawer) */
+.user-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.user-drawer.open {
+  transform: translateX(0);
+}
+
+.user-drawer-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+.user-drawer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user-drawer-back-btn,
+.user-drawer-close-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.user-drawer-back-btn:hover,
+.user-drawer-close-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.user-breadcrumb {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.user-breadcrumb strong.active {
+  color: var(--accent-gold);
+}
+
+.user-drawer-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.user-drawer-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.user-drawer-section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.user-drawer-sub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-drawer-sub-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+}
+
+.user-drawer-sub-item:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-magic);
+  box-shadow: 0 0 10px rgba(140, 82, 255, 0.2);
+}
+
+.user-drawer-sub-info span {
+  display: block;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.user-drawer-sub-info small {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.user-sub-arrow {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.user-drawer-sub-item:hover .user-sub-arrow {
+  color: var(--accent-magic);
+}

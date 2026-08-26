@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+:root {
+  /* ==========================================================================
+     1. ÜMUMİ VƏ FON RƏNGLƏRİ (MAGIC & DARK THEME BASE)
+     ========================================================================== */
+  --bg-primary: #0d0e15;       /* Qaranlıq sehrbaz gecəsi / Əsas background */
+  --bg-secondary: #161824;     /* Kartlar və panellər üçün ikincili fon */
+  --bg-tertiary: #212436;      /* Hover və aktiv sahələr üçün üst qat */
+  
+  --text-primary: #f0ecf4;     /* Əsas oxunaqlı mətn rəngi (kremi/bənövşəyi çalar) */
+  --text-secondary: #a09cb0;   /* İkinci dərəcəli mətnlər, tarixlər, alt başlıqlar */
+  --text-muted: #64607a;       /* Sönük/passiv mətnlər */
+
+  --border-color: #2e324a;     /* İncə haşiyələr üçün */
+  --accent-gold: #e5b95c;      /* Sehrli parıltı, Düymələr və Highlight rəngi */
+  --accent-magic: #8c52ff;     /* Qədim sehr parıltısı (Violet/Purple) */
+
+  /* Status rəngləri */
+  --status-success: #2ecc71;
+  --status-warning: #f39c12;
+  --status-danger: #e74c3c;
+  --status-info: #3498db;
+
+
+  /* ==========================================================================
+     2. FAKULTƏ (HOUSE) RƏNGLƏRİ VƏ ÇALARLARI
+     ========================================================================== */
+
+  /* 🦁 Gryffindor (Cəsarət və Qızıl) */
+  --house-gryffindor-primary: #740001;    /* Qırmızı Qızıl (Scarlet) */
+  --house-gryffindor-secondary: #d3a625;  /* Parlaq Qızılı (Gold) */
+  --house-gryffindor-dark: #400001;       /* Qaranlıq çalar (Hover/Active) */
+  --house-gryffindor-light: #ae0001;      /* Açıq çalar */
+  --house-gryffindor-bg: rgba(116, 0, 1, 0.15); /* Şəffaf fon üçün */
+
+  /* 🐍 Slytherin (Məqsədyönlülük və Gümüş) */
+  --house-slytherin-primary: #1a472a;     /* Dərin Zümrüd Yaşılı (Emerald Green) */
+  --house-slytherin-secondary: #aaaaaa;   /* Gümüşü (Silver) */
+  --house-slytherin-dark: #072a12;        /* Qaranlıq çalar */
+  --house-slytherin-light: #2a623d;       /* Açıq çalar */
+  --house-slytherin-bg: rgba(26, 71, 42, 0.15);
+
+  /* 🦅 Ravenclaw (Müdriklik və Tunc) */
+  --house-ravenclaw-primary: #0e1a40;     /* Mavi (Midnight Blue) */
+  --house-ravenclaw-secondary: #946b2d;   /* Tunc/Bürünc (Bronze) */
+  --house-ravenclaw-dark: #050b1e;        /* Qaranlıq çalar */
+  --house-ravenclaw-light: #222f5b;       /* Açıq çalar */
+  --house-ravenclaw-bg: rgba(14, 26, 64, 0.15);
+
+  /* 🦡 Hufflepuff (Sədaqət və Qara) */
+  --house-hufflepuff-primary: #ecb939;    /* İsti Sarı (Canary Yellow) */
+  --house-hufflepuff-secondary: #372e29;  /* Tünd Qəhvəyi / Qara (Black/Brown) */
+  --house-hufflepuff-dark: #a87e13;       /* Qaranlıq çalar */
+  --house-hufflepuff-light: #f0c75e;      /* Açıq çalar */
+  --house-hufflepuff-bg: rgba(236, 185, 57, 0.15);
+
+
+  /* ==========================================================================
+     3. EFFEKTLƏR VƏ KÖLGƏLƏR (MAGIC GLOW & SHADOWS)
+     ========================================================================== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.8);
+
+  /* Sehrli parıltı effekti (Glow) */
+  --glow-gold: 0 0 15px rgba(229, 185, 92, 0.4);
+  --glow-gryffindor: 0 0 15px rgba(211, 166, 37, 0.5);
+  --glow-slytherin: 0 0 15px rgba(42, 98, 61, 0.5);
+  --glow-ravenclaw: 0 0 15px rgba(34, 47, 91, 0.5);
+  --glow-hufflepuff: 0 0 15px rgba(236, 185, 57, 0.5);
+}
