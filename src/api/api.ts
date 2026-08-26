@@ -5,7 +5,7 @@ interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
 }
 
-const BASE_URL: string = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+const BASE_URL: string = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api' || 'https://hogwarts-back.onrender.com/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
