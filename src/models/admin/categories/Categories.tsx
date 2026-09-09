@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FaPlus, FaTimes, FaEdit, FaFolder, FaFolderOpen } from "react-icons/fa";
-import type { categoryType, categoryTypeResponse } from "../../../types/TotalTypes";
+import type { CategoryTypeResponse } from "../../../types/TotalTypes";
 import api from "../../../api/api";
 import "./Categories.css";
 
 interface CategoryItemProps {
-  category: categoryTypeResponse;
-  allCategories: categoryTypeResponse[];
-  startEditing: (category: categoryTypeResponse) => void;
+  category: CategoryTypeResponse;
+  allCategories: CategoryTypeResponse[];
+  startEditing: (category: CategoryTypeResponse) => void;
   level?: number;
 }
 
@@ -23,7 +23,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({
 
   const subFromNested = (category as any).subCategories || (category as any).children || [];
 
-  const subCategories: categoryTypeResponse[] =
+  const subCategories: CategoryTypeResponse[] =
     subFromFlatList.length > 0 ? subFromFlatList : subFromNested;
 
   return (
@@ -83,7 +83,7 @@ interface RenderOption {
 }
 
 const getFlattenedCategories = (
-  items: categoryTypeResponse[],
+  items: CategoryTypeResponse[],
   depth = 0
 ): RenderOption[] => {
   let result: RenderOption[] = [];
@@ -95,7 +95,7 @@ const getFlattenedCategories = (
       depth: depth,
     });
 
-    const subList: categoryTypeResponse[] =
+    const subList: CategoryTypeResponse[] =
       (item as any).subCategories || (item as any).children || [];
 
     if (subList && subList.length > 0) {
@@ -108,12 +108,13 @@ const getFlattenedCategories = (
 };
 
 const Categories: React.FC = () => {
-  const [categories, setCategories] = useState<categoryTypeResponse[]>([]);
+  const [categories, setCategories] = useState<CategoryTypeResponse[]>([]);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [editingCategory, setEditingCategory] = useState<categoryTypeResponse | null>(null);
+  const [editingCategory, setEditingCategory] = useState<CategoryTypeResponse | null>(null);
 
-  const [formData, setFormData] = useState<categoryType>({
+  const [formData, setFormData] = useState<CategoryTypeResponse>({
+    id: "",
     name: "",
     parentId: null,
   });
@@ -123,7 +124,7 @@ const Categories: React.FC = () => {
     try {
       const response = await api.get("/categories");
       console.log("Gələn DTO Datası:", response.data);
-      setCategories(response.data as categoryTypeResponse[]);
+      setCategories(response.data as CategoryTypeResponse[]);
     } catch (error) {
       console.error("Kateqoriyalar yüklənərkən xəta yarandı:", error);
     } finally {
@@ -144,7 +145,7 @@ const Categories: React.FC = () => {
   };
 
   const resetForm = () => {
-    setFormData({ name: "", parentId: null });
+    setFormData({ id: "", name: "", parentId: null });
     setEditingCategory(null);
     setShowForm(false);
   };
@@ -154,15 +155,16 @@ const Categories: React.FC = () => {
       resetForm();
     } else {
       setEditingCategory(null);
-      setFormData({ name: "", parentId: null });
+      setFormData({ id: "", name: "", parentId: null });
       setShowForm(true);
     }
   };
 
-  const startEditing = (category: categoryTypeResponse) => {
+  const startEditing = (category: CategoryTypeResponse) => {
     setEditingCategory(category);
     console.log(category);
     setFormData({
+      id: category.id,
       name: category.name,
       parentId: category.parentId ? String(category.parentId) : null,
     });

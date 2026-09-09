@@ -150,6 +150,7 @@ const Products: React.FC = () => {
     try {
       const uploadedData = await uploadImage(selectedFile);
       const newImg: ProductImageDto = {
+        id: "", // Yeni şəkil üçün id backend tərəfindən təyin olunacaq
         image: uploadedData.url, // Cloudinary-dən gələn link 'image' sahəsinə mənimsədilir
         publicId: uploadedData.publicId,
         color: imageColor,
@@ -211,7 +212,7 @@ const Products: React.FC = () => {
       const detail: ProductDetailResponseDto = response.data;
 
       const formattedProperties: ProductPropertyInput[] = detail.properties?.map((p) => ({
-        propertyId: p.propertyId,
+        propertyId: p.id,
         value: p.value
       })) || [];
 

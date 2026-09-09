@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { FaPlus, FaTimes, FaFont, FaHashtag, FaDotCircle, FaEdit } from "react-icons/fa";
 import "./Properties.css";
-import type { propertyType, propertyTypeResponse } from "../../../types/TotalTypes";
+import type { PropertyType, PropertyTypeResponse } from "../../../types/TotalTypes";
 import api from "../../../api/api";
 
 type FeatureType = "TEXT" | "NUMBER" | "RADIO";
 
 const Properties: React.FC = () => {
-  const [products, setProducts] = useState<propertyTypeResponse[]>([]);
+  const [products, setProducts] = useState<PropertyTypeResponse[]>([]);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [editingProduct, setEditingProduct] = useState<propertyTypeResponse | null>(null);
+  const [editingProduct, setEditingProduct] = useState<PropertyTypeResponse | null>(null);
 
-  const [formData, setFormData] = useState<propertyType>({
+  const [formData, setFormData] = useState<PropertyType>({
     name: "",
     type: "TEXT",
   });
@@ -22,7 +22,7 @@ const Properties: React.FC = () => {
     setLoading(true);
     try {
       const response = await api.get("/properties/getAllProperties");
-      const data = response.data as propertyTypeResponse[];
+      const data = response.data as PropertyTypeResponse[];
       setProducts(data);
     } catch (error) {
       console.error("Məhsullar gətirilərkən xəta yarandı:", error);
@@ -66,7 +66,7 @@ const Properties: React.FC = () => {
     }
   };
 
-  const startEditing = (product: propertyTypeResponse) => {
+  const startEditing = (product: PropertyTypeResponse) => {
     setEditingProduct(product);
     setFormData({
       name: product.name,
@@ -80,7 +80,7 @@ const Properties: React.FC = () => {
     try {
       if (editingProduct) {
         const response = await api.patch(`/properties/updateProperty/${editingProduct.id}`, formData);
-        const updatedItem = response.data as propertyTypeResponse;
+        const updatedItem = response.data as PropertyTypeResponse;
 
         setProducts((prev) =>
           prev.map((item) => (item.id === editingProduct.id ? { ...item, ...formData, ...updatedItem } : item))

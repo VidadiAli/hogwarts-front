@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { OrderStatus, type basketType, type OrderCreateDto, type ProfileProps } from "../../types/TotalTypes";
+import { OrderStatus, type BasketType, type OrderCreateDto, type ProfileProps } from "../../types/TotalTypes";
 import "./Basket.css";
 import api from "../../api/api";
 
 const STORE_LOCATION = "Sehrli Mağaza, Əsas Filial";
 
 const Basket: React.FC<ProfileProps> = ({profile}) => {
-  const [basketItems, setBasketItems] = useState<basketType[]>([]);
-  const [selectedItem, setSelectedItem] = useState<basketType | null>(null);
+  const [basketItems, setBasketItems] = useState<BasketType[]>([]);
+  const [selectedItem, setSelectedItem] = useState<BasketType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isDeliveryChoice, setIsDeliveryChoice] = useState<boolean>(true);
   const [userAddress, setUserAddress] = useState<string>("");
@@ -19,7 +19,7 @@ const Basket: React.FC<ProfileProps> = ({profile}) => {
     const storedBasket = localStorage.getItem("magicBasket");
     if (storedBasket) {
       try {
-        const parsed: basketType[] = JSON.parse(storedBasket);
+        const parsed: BasketType[] = JSON.parse(storedBasket);
         setBasketItems(parsed);
       } catch (err) {
         console.error("Basket parse error:", err);
@@ -27,7 +27,7 @@ const Basket: React.FC<ProfileProps> = ({profile}) => {
     }
   }, []);
 
-  const updateLocalStorage = (updatedItems: basketType[]) => {
+  const updateLocalStorage = (updatedItems: BasketType[]) => {
     setBasketItems(updatedItems);
     localStorage.setItem("magicBasket", JSON.stringify(updatedItems));
   };
@@ -73,7 +73,7 @@ const Basket: React.FC<ProfileProps> = ({profile}) => {
     }
   };
 
-  const handleSingleOrder = (item: basketType) => {
+  const handleSingleOrder = (item: BasketType) => {
     console.log(profile)
     if (!profile?.id) {
       alert("Zəhmət olmasa ilk öncə daxil olun!");

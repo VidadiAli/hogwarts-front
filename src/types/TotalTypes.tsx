@@ -1,6 +1,6 @@
 import type React from "react";
 
-export interface userType {
+export interface UserType {
   id: string;
   email: string;
   name: string;
@@ -11,12 +11,12 @@ export interface userType {
   picture: string;
 }
 
-export interface userLoginType {
+export interface UserLoginType {
   phoneNumber: string;
   password: string;
 }
 
-export interface productImageType {
+export interface ProductImageType {
   image: string;
   color: string;
   publicId: string;
@@ -92,24 +92,24 @@ export interface CategoryType {
 }
 
 
-export interface categoryTypeResponse {
+export interface CategoryTypeResponse {
   id: string;
   name: string;
   parentId: string | null;
 }
 
-export interface propertyType {
+export interface PropertyType {
   name: string;
   type: string;
 }
 
-export interface propertyTypeResponse {
+export interface PropertyTypeResponse {
   id: string;
   name: string;
   type: string;
 }
 
-export interface orderType {
+export interface OrderType {
   isDelivery: boolean;
   location: string;
   status: string;
@@ -138,7 +138,7 @@ export interface OrderCreateDto {
   user: number;
 }
 
-export interface basketType {
+export interface BasketType {
   id?: number | string | null;
   product: ProductListResponseDto;
   productCount: number;
@@ -210,7 +210,7 @@ export interface FilterProps {
   setFilter: React.Dispatch<React.SetStateAction<FilterType>>;
 }
 
-export interface filterAndData {
+export interface FilterAndData {
   filter: FilterType,
   setFilter: React.Dispatch<React.SetStateAction<FilterType>>; 
   profile: ProfileType | null;

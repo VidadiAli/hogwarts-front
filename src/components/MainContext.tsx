@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./Home"
-import type { filterAndData } from "../types/TotalTypes"
+import type { FilterAndData } from "../types/TotalTypes"
 import Product from "../models/products/Product"
 import Basket from "../models/basket/Basket"
 import Order from "../models/orders/Order"
 
-const MainContext: React.FC<filterAndData> = ({ filter, setFilter, profile, setProfile}) => {
+const MainContext: React.FC<FilterAndData> = ({ filter, setFilter, profile, setProfile}) => {
   return (
     <div>
       <Routes>
