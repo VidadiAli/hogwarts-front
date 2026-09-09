@@ -1,8 +1,8 @@
-import type { filterAndData } from "../types/TotalTypes"
+import type { FilterAndData } from "../types/TotalTypes"
 import Menu from "./Menu"
 import MainContext from './MainContext'
 
-const Main: React.FC<filterAndData> = ({ profile, setProfile, filter, setFilter }) => {
+const Main: React.FC<FilterAndData> = ({ profile, setProfile, filter, setFilter }) => {
   return (
     <div>
         <Menu profile={profile} setProfile={setProfile} filter={filter} setFilter={setFilter} />
