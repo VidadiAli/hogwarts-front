@@ -1,8 +1,8 @@
-import type { basketType, ProductListResponseDto } from "../types/TotalTypes";
+import type { BasketType, ProductListResponseDto } from "../types/TotalTypes";
 
 export const handleBasket = (element: ProductListResponseDto) => {
     const storedBasket = localStorage.getItem('magicBasket');
-    const data: basketType[] = storedBasket ? JSON.parse(storedBasket) : [];
+    const data: BasketType[] = storedBasket ? JSON.parse(storedBasket) : [];
 
     const index = data.findIndex((item) => item.product.id === element.id);
 
